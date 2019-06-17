@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     def create
         @user=User.create(strong_params)
-        redirect_to "/users/"
+        redirect_to "/users/#{@user}"
     end
 
     def authenticate
