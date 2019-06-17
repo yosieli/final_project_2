@@ -3,6 +3,10 @@ class UsersController < ApplicationController
         @users= User.all
     end
 
+    def show
+        @user = User.find(params[:id])
+    end
+
     def new 
         
     end
@@ -13,9 +17,8 @@ class UsersController < ApplicationController
 
     def create
         @user=User.create(strong_params)
-        redirect_to "/users/#{@user}"
+        redirect_to "/users/#{@user.id}"
     end
-
     def authenticate
         # The username the use wrote to find the user 
         user= User.find_by(user_name: strong_params[:user_name])
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
     end
     def strong_params
     
-        params.permit([:user_name, :password])
+        params.require(:user).permit([:user_name, :password])
     end
 
     
