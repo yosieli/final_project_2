@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user=User.create(strong_params)
-        redirect_to "/users/#{@user}"
+        @user=User.create(strong_params[:user])
+        redirect_to "/users/show"
     end
 
     def authenticate
@@ -30,10 +30,20 @@ class UsersController < ApplicationController
             # oops
         end
     end
-    def strong_params
+    # def strong_params
+
     
-        params.permit([:user_name, :password])
-    end
+    #     params.permit([:user_name, :password])
+        def strong_params
+            params.permit(
+                user: [
+                    :user_name,
+                    :password_digest
+                    
+                ]
+            )
+        end
+
 
     
 
