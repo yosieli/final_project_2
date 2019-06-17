@@ -1,0 +1,9 @@
+<%= form_with method: 'POST', url: '/users/authenticate' do |f| %>
+  Username: <%= f.text_field :user_name %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit "login" %>
+
+
+  
+
+<% end %>
