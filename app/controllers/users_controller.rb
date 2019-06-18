@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
 
     def new 
-        
+       @user=User.new 
     end
 
     def display_login_form
@@ -16,21 +16,27 @@ class UsersController < ApplicationController
     end
 
     def create
-<<<<<<< HEAD
-        @user=User.create(strong_params[:user])
-        redirect_to "/users/show"
-=======
         @user=User.create(strong_params)
         redirect_to "/users/#{@user.id}"
->>>>>>> master
     end
+
+    def edit
+        @user =User.find(params[:id])
+    end
+
+    def update
+     @user = User.find(params[:id])
+     @user.update(strong_params[:user])   
+    end
+
     def authenticate
         # The username the use wrote to find the user 
-        user= User.find_by(user_name: strong_params[:user_name])
+        user= User.find_by(user_name: params[:user_name])
+    
         
         # Then check if the password they wrote was correct
-        
-        if user != nil && user.authenticate( params[:password] )
+    
+        if user != nil && user.authenticate(params[:password] )
              # If it was, save the users id in the session
             session[:user_id] = user.id
             redirect_to "/users/#{user.id}"
@@ -38,25 +44,22 @@ class UsersController < ApplicationController
             # oops
         end
     end
-    # def strong_params
+    def destroy      
+        session[:user_id] = nil     
+        redirect_to '/login' 
+      end  
+    
+
+
+    def strong_params
 
     
-<<<<<<< HEAD
-    #     params.permit([:user_name, :password])
-        def strong_params
-            params.permit(
-                user: [
-                    :user_name,
-                    :password_digest
-                    
-                ]
-            )
-        end
-
-=======
         params.require(:user).permit([:user_name, :password])
     end
->>>>>>> master
+
+
+
+    # kfjlkfjkfj
 
     
 
