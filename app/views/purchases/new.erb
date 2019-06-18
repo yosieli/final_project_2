@@ -1,0 +1,12 @@
+<%= form_with model: @purchase do |f| %>
+  
+  
+  book_id<%= f.collection_select :book_id, Book.all,:id,:name %>
+
+  <%= f.submit "Purchase" %>
+
+
+
+  
+
+<% end %>

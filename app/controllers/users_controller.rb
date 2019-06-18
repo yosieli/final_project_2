@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
     def index
         @users= User.all
+        @book=Book.all
     end
 
     def show
         @user = User.find(params[:id])
+        @book=Book.find(params[:id])
+        
     end
+
 
     def new 
        @user=User.new 
@@ -26,7 +30,9 @@ class UsersController < ApplicationController
 
     def update
      @user = User.find(params[:id])
-     @user.update(strong_params[:user])   
+     @user.update(strong_params)
+     
+     redirect_to "/users/#{@user.id}"  
     end
 
     def authenticate
@@ -44,10 +50,18 @@ class UsersController < ApplicationController
             # oops
         end
     end
+
+
+
     def destroy      
         session[:user_id] = nil     
         redirect_to '/login' 
-      end  
+    end
+    
+    # def add_book
+    #     current_book.add_book(params[:book_id])
+    #     # redirect to shopping cart or whereever
+    #   end
     
 
 
