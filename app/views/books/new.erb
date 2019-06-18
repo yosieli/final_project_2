@@ -1,7 +1,7 @@
 <%= form_with model: @book do |f| %>
   Title: <%= f.text_field :title %>
   Genre: <%= f.text_field :genre %>
-  Img_url:<%= f.
+
   
   autor_id<%= f.collection_select :autor_id, Autor.all,:id,:name %>
 

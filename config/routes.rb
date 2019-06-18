@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   post '/books', to: 'books#add'
   get '/books', to: 'books#index'
   get '/books/:id', to: 'books#show'
-  delete '/users' => 'users#destroy'
+  delete '/users', to: 'users#destroy'
+  get '/users/:id/edit', to: 'users#edit'
+  patch 'users/:id',to: 'users#update'
+
+  
 
   # post '/users/' ,to: 'users#create'
   

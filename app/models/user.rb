@@ -4,5 +4,19 @@ class User < ApplicationRecord
     has_many :books, through: :purchases
     has_secure_password
     validates :user_name, uniqueness:{case_sensitive:false}
+
+    def add_book(book_id)
+        item = items.where('book_id = ?', book_id).first
+    if item
+        # increase the quantity of product in cart
+        item.quantity + 1
+        save
+    else
+        # product does not exist in cart
+        book= Book.find(product_id)
+        items << book
+    end
+    save
+end
     
 end
