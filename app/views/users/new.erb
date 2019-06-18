@@ -1,9 +1,36 @@
-<%= form_with model: @user do |f| %>
-  Username: <%= f.text_field :user_name %>
-  Password: <%= f.password_field :password %>
-  <%= f.submit "signup" %>
+ 
+<head>
+    
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-
-  
-
-<% end %>
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center jumbotron container">
+    <h1> Welcome to BookHub!</h1>
+    <form action="/users" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="EZ3MQY9qlImPoURFIc1Ob9Ha3V2BAVUVum4Rfazv4KYvbjOVgbS/S1fegxGPgC+5BJVRFtyYl7PE0Mlb4QJ2Nw==" class="form-signin container">
+      
+      <h1 class="h3 mb-3 font-weight-normal">Just a Little Info</h1>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input type="text" name="user[user_name]" id="user_user_name" class="form-control form-control-lg" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="user[password]" id="user_password" class="form-control form-control-lg" placeholder="Password" required>
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit">Create New Account</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+    </form>
+</body>

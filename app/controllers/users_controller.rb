@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     def new 
        @user=User.new 
+       
     end
 
     def display_login_form
@@ -16,8 +17,9 @@ class UsersController < ApplicationController
     end
 
     def create
+        
         @user=User.create(strong_params)
-        redirect_to "/users/#{@user.id}"
+        redirect_to "/login"
     end
 
     def edit
