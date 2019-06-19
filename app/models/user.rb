@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-    # has_secure_password
+   
     has_many :purchases
     has_many :books, through: :purchases
+    has_one_attached :avatar 
     has_secure_password
     validates :user_name, uniqueness:{case_sensitive:false}
 
@@ -16,7 +17,7 @@ class User < ApplicationRecord
         book= Book.find(product_id)
         items << book
     end
-    save
+    
 end
     
 end

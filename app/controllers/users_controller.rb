@@ -33,8 +33,10 @@ class UsersController < ApplicationController
 
     def update
      @user = User.find(params[:id])
-     @user.update(strong_params)
      
+     
+     @user.create(strong_params)
+    
      redirect_to "/users/#{@user.id}"  
     end
 
@@ -69,9 +71,7 @@ class UsersController < ApplicationController
 
 
     def strong_params
-
-    
-        params.require(:user).permit([:user_name, :password])
+        params.require(:user).permit([:user_name, :password, :avatar])
     end
 
 

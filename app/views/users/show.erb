@@ -15,7 +15,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
+    
   </head>
   <body>
     <header>
@@ -59,34 +59,44 @@
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading"> Welcome    <%=@user.user_name%></h1>
-      <p class="lead text-muted"></p>
-      
+    </div>
+    <div class='container'>
+      <% if @user.avatar.attached? %>
+            <img src='<%=(url_for(@user.avatar))%>'>
+    <%end%>
     </div>
   </section>
 
   <div class="album py-5 bg-light">
     <div class="container">
 
+    <%if @user.books.length > 0%>
+
       <div class="row">
-        <% @user.books.each do |book| %>       
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+      <% @user.books.each do |book| %>  
+           
+        <div class="col-md-4 container jumbotron">
+          <div class="card mb-3 shadow-sm ">
             <a href = <%="/books/#{book.id}"%>>
-            <img class="bd-placeholder-img card-img-top" width="20%" height="225" src=<%=book.img_url%> preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="20%" height="50%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%=book.title%></text>
+            <img class="bd-placeholder-img card-img-top" width="200" height="225" src=<%="#{book.img_url}"%> >
             </a>
+
             <div class="card-body">
-              <p class="card-text"><%= book.genre %></p>
-              <p class="card-text"><%= book.author %></p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
+              <p class="card-text">Title: <%= book.title %></p>
+              <p class="card-text">Category: <%= book.genre %></p>
+              <p class="card-text">Author: <%= book.author%></p>
             </div>
           </div>
         </div>
         <% end %>
+      <%else%>
+      <div class='container text-center'>
+        <h1><%= 'You dont have any books yet!'  %></h1>
+      </div>
+      <%end%>
       </div>
     </div>
   </div>
-
 </main>
 
 <footer class="text-muted">
@@ -94,7 +104,6 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
+    <p> copyright J and F enterprises </p>
   </div>
 </footer>
