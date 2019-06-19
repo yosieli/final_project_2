@@ -11,25 +11,45 @@
 
 
 
- 5.times do
-   Autor.create(name: Faker::Name.name, bio: 'Random placeholder')
+#  5.times do
+#    Autor.create(name: Faker::Name.name, bio: 'Random placeholder')
 
+# end
+
+def api_search
+   response = RestClient.get('https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=20&printType=books')
+   api_response = JSON.parse(response)
+   
+   api_response['items'].each do |book|
+      self_link = RestClient.get(book['selfLink'])
+      item_info = JSON.parse(self_link)
+      title = book['volumeInfo']['title']
+      genre = book['volumeInfo']['categories'][0]
+      img_url = item_info['volumeInfo']['imageLinks']['small']
+      author = book['volumeInfo']['authors'][0]
+      page_count = book['volumeInfo']['pageCount']
+      summary = book['volumeInfo']['description']
+      
+      Book.create(title: title, genre: genre, img_url: img_url, author: author, page_count: page_count, summary: summary)
+     
+   end
 end
-
-5.times do
-    Book.create(title: Faker::Book.title,genre: Faker::Book.genre , img_url: Faker::LoremPixel.image,autor_id: rand(1..5))
-
-end
-
- 5.times do
-    User.create(user_name: Faker::Name.first_name,password: "1234"  )
-
- end
+api_search
  
- 5.times do
-    Purchase.create(user_id: rand(1..5),book_id: rand(1..5) )
 
-end
+    
+
+
+
+#  5.times do
+#     User.create(user_name: Faker::Name.first_name,password: "1234"  )
+
+#  end
+ 
+#  5.times do
+#     Purchase.create(user_id: rand(1..5),book_id: rand(1..5) )
+
+# end
 
 
 

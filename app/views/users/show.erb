@@ -72,11 +72,11 @@
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <a href = <%="/books/#{book.id}"%>>
-            <img class="bd-placeholder-img card-img-top" width="20%" height="225" src="https://lorempixel.com/300/300" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="20%" height="50%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%=book.title%></text>
+            <img class="bd-placeholder-img card-img-top" width="20%" height="225" src=<%=book.img_url%> preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="20%" height="50%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%=book.title%></text>
             </a>
             <div class="card-body">
               <p class="card-text"><%= book.genre %></p>
-              <p class="card-text"><%= book.autor.name %></p>
+              <p class="card-text"><%= book.author %></p>
               <div class="d-flex justify-content-between align-items-center">
               </div>
             </div>

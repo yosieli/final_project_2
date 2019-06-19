@@ -6,8 +6,6 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @book=Book.find(params[:id])
-        
     end
 
 
@@ -23,6 +21,7 @@ class UsersController < ApplicationController
     def create
         
         @user=User.create(strong_params)
+        
         redirect_to "/login"
     end
 

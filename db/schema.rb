@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 2019_06_17_143801) do
     t.string "title"
     t.string "genre"
     t.string "img_url"
-    t.integer "autor_id"
+    t.string "author"
+    t.integer "page_count"
+    t.text "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

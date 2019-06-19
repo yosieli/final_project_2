@@ -51,9 +51,9 @@
 <main role="main">
 
   <section class="jumbotron text-center">
-    <div class="container">
+    <div class="container-fluid">
       
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <h1>Welcome to The BookHub!!!!!</h1>
       
     </div>
   </section>
@@ -62,15 +62,18 @@
     <div class="container">
 
       <div class="row">
-      <% @books.each do |book| %>       
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+      <% @books.each do |book| %>  
+           
+        <div class="col-md-4 container jumbotron">
+          <div class="card mb-3 shadow-sm ">
             <a href = <%="/books/#{book.id}"%>>
-            <img class="bd-placeholder-img card-img-top" width="20%" height="225" src="https://lorempixel.com/300/300" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="20%" height="50%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%=book.title%></text>
+            <img class="bd-placeholder-img card-img-top" width="200" height="225" src=<%="#{book.img_url}"%> >
             </a>
+
             <div class="card-body">
-              <p class="card-text"><%= book.genre %></p>
-              <p class="card-text"><%= book.autor.name %></p>
+              <p class="card-text">Title: <%= book.title %></p>
+              <p class="card-text">Category: <%= book.genre %></p>
+              <p class="card-text">Author: <%= book.author%></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div >
                   <%= button_to "Purchase", purchases_path(book_id: book.id, :method => :post), class:"btn btn-primary btn-sm"%> <!--Button Helper post to purchases/create passes book.id in params>-->
@@ -83,7 +86,7 @@
       </div>
     </div>
   </div>
-
+<%=%>
 </main>
 
 <footer class="text-muted">
