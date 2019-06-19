@@ -15,7 +15,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
+    
   </head>
   <body>
     <header>
@@ -60,13 +60,18 @@
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading"> Welcome    <%=@user.user_name%></h1>
-      <p class="lead text-muted"></p>
-      
+    </div>
+    <div class='container'>
+      <% if @user.avatar.attached? %>
+            <img src='<%=(url_for(@user.avatar))%>'>
+    <%end%>
     </div>
   </section>
 
   <div class="album py-5 bg-light">
     <div class="container">
+
+    <%if @user.books.length > 0%>
 
       <div class="row">
       <% @user.books.each do |book| %>  
@@ -85,10 +90,14 @@
           </div>
         </div>
         <% end %>
+      <%else%>
+      <div class='container text-center'>
+        <h1><%= 'You dont have any books yet!'  %></h1>
+      </div>
+      <%end%>
       </div>
     </div>
   </div>
-
 </main>
 
 <footer class="text-muted">
@@ -96,7 +105,6 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
+    <p> copyright J and F enterprises </p>
   </div>
 </footer>
