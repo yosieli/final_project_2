@@ -41,10 +41,10 @@ api_search
 
 
 
-#  5.times do
-#     User.create(user_name: Faker::Name.first_name,password: "1234"  )
+  5.times do
+     User.create(user_name: Faker::Name.first_name,password: "1234"  )
 
-#  end
+ end
  
 #  5.times do
 #     Purchase.create(user_id: rand(1..5),book_id: rand(1..5) )
