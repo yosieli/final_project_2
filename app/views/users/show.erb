@@ -46,8 +46,9 @@
       <p>
         <p>
         <a href="/books" class="btn btn-secondary my-2">Book Home Page</a>
-        <%= link_to "Log out", "/users", method: "delete" %>
-        <%=link_to "edit","/users/#{@user.id}/edit" %>
+        <a href="/users/<%=@user.id%>/edit" class="btn btn-secondary my-2">Edit</a>
+        <%= link_to "Log out", "/users", method: "delete", class: "btn btn-secondary my-2" %>
+        
       
       
     </div>
@@ -68,17 +69,18 @@
     <div class="container">
 
       <div class="row">
-        <% @user.books.each do |book| %>       
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+      <% @user.books.each do |book| %>  
+           
+        <div class="col-md-4 container jumbotron">
+          <div class="card mb-3 shadow-sm ">
             <a href = <%="/books/#{book.id}"%>>
-            <img class="bd-placeholder-img card-img-top" width="20%" height="225" src=<%=book.img_url%> preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="20%" height="50%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%=book.title%></text>
+            <img class="bd-placeholder-img card-img-top" width="200" height="225" src=<%="#{book.img_url}"%> >
             </a>
+
             <div class="card-body">
-              <p class="card-text"><%= book.genre %></p>
-              <p class="card-text"><%= book.author %></p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
+              <p class="card-text">Title: <%= book.title %></p>
+              <p class="card-text">Category: <%= book.genre %></p>
+              <p class="card-text">Author: <%= book.author%></p>  
             </div>
           </div>
         </div>
