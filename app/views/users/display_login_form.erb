@@ -34,9 +34,9 @@
   
   
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit">Sign in</button>
-  <% @error["user_name"].each do |error_mes|%>
-      <%= error_mes%>
-    <% end %>
+  <div>
+    <h1> <%=@error%> </h1>
+  </div>
   <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
 </form>
 </body>

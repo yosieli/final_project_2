@@ -8,37 +8,32 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
-
-    def new 
-    @user=User.new 
-    end
-
     def display_login_form
-       
-        
         if flash[:error]
-            @error=flash[:error]
-        
-        else
-            @error = {
-                "user_name" => []
-
-            }
+            @error = flash[:error]
+        end 
+    end
     
+    def new 
+        if flash[:error]
+                
+            @error = flash[:error]
+            
+        else
+            @error = {"user_name" => []}
+        end
     end
 
     def create
-        
-        @user.assign_attributes(strong_params)
-        if(@user.valid?)
-            @user.save
-            redirect_to  @user
+        user = User.new(strong_params)
+        if user.valid?
+            user.before_save
+            user.save
+            redirect_to  "/users/#{user.id}"
         else
-            flash[:error] = @user.errors
-            redirect_to "/login"
+            flash[:error] = user.errors.messages
+            redirect_to "/users/new"
         end
-        
-       
     end
 
     def edit
@@ -57,8 +52,7 @@ class UsersController < ApplicationController
     def authenticate
 
         # The username the use wrote to find the user 
-        user= User.find_by(user_name: params[:user_name])
-    
+        user = User.find_by(user_name: params[:user_name].capitalize)
         
         # Then check if the password they wrote was correct
     
@@ -66,12 +60,10 @@ class UsersController < ApplicationController
              # If it was, save the users id in the session
             session[:user_id] = user.id
             redirect_to "/users/#{user.id}"
-          else 
+        else 
+            flash[:error] = "Username/Password not found"
             
-            
-            
-          end
-             
+            redirect_to "/login"
         end
     end
 
@@ -81,25 +73,19 @@ class UsersController < ApplicationController
         session[:user_id] = nil     
         redirect_to '/login' 
     end
-    
-    # def add_book
-    #     current_book.add_book(params[:book_id])
-    #     # redirect to shopping cart or whereever
-    #   end
-    
-
 
     def strong_params
         params.require(:user).permit([:user_name, :password, :avatar])
     end
 
 
-
-    # kfjlkfjkfj
-
-    
-
-     
-     
-
 end
+# if flash[:error]
+#     @error=flash[:error]
+#     redirect_to '/login'
+# else
+#     @error = {
+#         "user_name" => []
+#     }
+#     redirect_to "/users/#{user.id}"
+# end
