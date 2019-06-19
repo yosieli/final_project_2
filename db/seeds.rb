@@ -17,7 +17,7 @@
 end
 
 5.times do
-    Book.create(title: Faker::Book.title,genre: Faker::Book.genre , img_url: Faker::LoremPixel.image,autor_id: rand(1..5))
+    Book.create(title: Faker::Book.title,genre: Faker::Book.genre , img_url: Faker::LoremFlickr.image,autor_id: rand(1..5))
 
 end
 
