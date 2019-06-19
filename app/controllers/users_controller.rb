@@ -6,37 +6,50 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+       
+        
     end
 
 
     def new 
-    @user=User.new 
+      @user=User.new 
+      if flash[:error]
+         @error=flash[:error]
+        else
+           @error = {
+                "name" => []
+            }
+        end
+       
+       
     end
 
     def display_login_form
-       
         
         if flash[:error]
             @error=flash[:error]
-        
-        else
-            @error = {
-                "user_name" => []
+           else
+              @error = {
+                  "user_name" => []
+               }
+           end
+          
 
-            }
-    
     end
 
     def create
         
-        @user.assign_attributes(strong_params)
-        if(@user.valid?)
-            @user.save
-            redirect_to  @user
-        else
-            flash[:error] = @user.errors
-            redirect_to "/login"
-        end
+        # @user.assign_attributes(strong_params)
+        # if(@user.valid?)
+        #     @user.save
+        #     redirect_to  @user
+        # else
+        #     flash[:error] = @user.errors
+        #     redirect_to "/login"
+        # end
+
+        @user=User.create(strong_params)
+        redirect_to "/login"
         
        
     end
@@ -47,15 +60,12 @@ class UsersController < ApplicationController
 
     def update
      @user = User.find(params[:id])
+     @user.update(strong_params)
      
-     
-     @user.create(strong_params)
-    
      redirect_to "/users/#{@user.id}"  
     end
 
     def authenticate
-
         # The username the use wrote to find the user 
         user= User.find_by(user_name: params[:user_name])
     
@@ -66,12 +76,8 @@ class UsersController < ApplicationController
              # If it was, save the users id in the session
             session[:user_id] = user.id
             redirect_to "/users/#{user.id}"
-          else 
-            
-            
-            
-          end
-             
+        else 
+            # oops
         end
     end
 
@@ -90,12 +96,14 @@ class UsersController < ApplicationController
 
 
     def strong_params
-        params.require(:user).permit([:user_name, :password, :avatar])
+
+    
+        params.require(:user).permit([:user_name, :password])
     end
 
 
 
-    # kfjlkfjkfj
+    
 
     
 
