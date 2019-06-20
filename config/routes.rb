@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   resources :autors
   # resources :books
   resources :purchases
-  
-root to: 'users#display_login_form'
-
+  root to: 'users#display_login_form'
   get '/login', to: 'users#display_login_form'
   post '/users/authenticate', to: 'users#authenticate'
   get '/users/new', to: 'users#new'
@@ -13,6 +11,7 @@ root to: 'users#display_login_form'
   get '/books/new', to: 'books#new'
   # post '/books', to: 'books#add'
   get '/books', to: 'books#index'
+  get '/books/search',to:'books#search'
   get '/books/:id', to: 'books#show'
   delete '/users', to: 'users#destroy'
   get '/users/:id/edit', to: 'users#edit'

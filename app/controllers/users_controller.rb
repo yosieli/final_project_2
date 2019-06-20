@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+       
+        
     end
 
     def display_login_form
@@ -63,8 +65,12 @@ class UsersController < ApplicationController
         redirect_to '/login' 
     end
 
+    
+
     def strong_params
-        params.require(:user).permit([:user_name, :password, :avatar])
+
+    
+        params.require(:user).permit([:user_name, :password])
     end
 
 

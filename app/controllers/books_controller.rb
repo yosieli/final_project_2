@@ -26,6 +26,10 @@ class BooksController < ApplicationController
       api_response = JSON.parse(response)
       api_response
     end
+
+    def search
+    
+    end
   
 
 

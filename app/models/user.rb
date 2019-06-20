@@ -19,9 +19,11 @@ class User < ApplicationRecord
         save
     else
         # product does not exist in cart
-        book= Book.find(product_id)
+        book= Book.find(book_id)
         items << book
     end
+
+    
     
 end
     
