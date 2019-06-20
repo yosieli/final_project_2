@@ -33,20 +33,6 @@
       <a href="#" class="navbar-brand d-flex align-items-center">
 
       
-       <select name="book[book_list]" form="search">
-          <option name="book[author]" value="author">Author</option>
-          <option name= "book[title]" value="title">Title</option>
-        </select>
-        <br>
-      </a>
-  </p>
-      <p>
-      
-        <input  type="text" placeholder="Search" aria-label="Search"  name='book[search]'>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </p>
-
-      <p>
         <a href="/users/<%=@user.id%>" class="btn btn-primary btn-sm" >Your Home Page</a>
         <%= link_to "Log out", "/users", method: "delete", class: "btn btn-primary btn-sm" %>
       </p>
@@ -69,8 +55,13 @@
         <form class="form-inline mt-2 mt-md-0" id='search' action="/books" accept-charset="UTF-8" data-remote="true" method="post">
         <input name="utf8" type="hidden" value="✓">
         <input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==" class="form-signin container">
+<<<<<<< HEAD
         
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"  name='book[search]' required='true'>
+=======
+          <br>
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"  name='book[search]'>
+>>>>>>> 7757b3702cf9f8a86a53f45c0a24ded5a8fe7a05
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         
