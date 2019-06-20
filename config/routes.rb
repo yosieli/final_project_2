@@ -12,14 +12,19 @@ Rails.application.routes.draw do
   # post '/books', to: 'books#add'
   get '/books', to: 'books#index'
   get '/books/search',to:'books#search'
+  post '/books/' ,to: 'books#search_form'
+  post '/books/create' , to: 'books#create'
   get '/books/:id', to: 'books#show'
   delete '/users', to: 'users#destroy'
   get '/users/:id/edit', to: 'users#edit'
   patch 'users/:id',to: 'users#update'
   
+<<<<<<< HEAD
   post '/books' ,to: 'books#search_form'
   delete '/books/:id', to: 'books#destroy'
 
+=======
+>>>>>>> a25cb01d13bf813be00942e3d19f447afa4e454c
   
 
   # post '/users/' ,to: 'users#create'
