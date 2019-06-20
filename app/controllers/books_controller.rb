@@ -33,7 +33,7 @@ class BooksController < ApplicationController
   end
 
   def api_search(input)
-    response = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{input}&maxResults=3&printType=books")
+    response = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{input}&printType=books")
     api_response = JSON.parse(response)
     api_response
   end
@@ -42,8 +42,7 @@ class BooksController < ApplicationController
     img_url = nil
     @@search_result['items'].each do |book|
       self_link = RestClient.get(book['selfLink'])
-      item_info = JSON.parse(self_link)
-      img_url = item_info['volumeInfo']['imageLinks']['small']  
+      img_url = self_link['volumeInfo']['imageLinks']['small']  
     end
       img_url
   end

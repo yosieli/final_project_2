@@ -53,25 +53,13 @@
   <div>
   <br>
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit">Edit</button>
+  <%= link_to 'Cancel', "/users/#{@user.id}", class: "btn btn-lg btn-danger btn-block" %>
   </div>
   <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
 </form>
 </body>
 
  
-<!-- <form action="/users/authenticate" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==">
-  <div>
-  Username: <input type="text" name="user_name" id="user_name">
-  </div>
-  <div>
-  Password: <input type="password" name="password" id="password">
-  </div>
-  <input type="submit" name="commit" value="login" data-disable-with="login">
-</form>  -->
-<div>
-  <h4> New Account? </h4>
-  <a class='' href="/users/new"><button class="btn btn-md btn-primary" >Sign Up</button></a>
-</div>
 
 
 
@@ -81,22 +69,10 @@
 
 
 
-
-
-<!--<%= form_with method: 'POST', url: '/users/authenticate' do |f| %>
-  <div>
-  Username: <%= f.text_field :user_name %>
-  </div>
-  <div>
-  Password: <%= f.password_field :password %>
-  </div>
-  <%= f.submit "login" %>
-  <%= link_to "SignUp","/users/new" %>    -->
 
 
   
 
-<% end %>
 
 
  

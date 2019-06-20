@@ -50,7 +50,7 @@
 
 <main role="main">
 
-  <div class="album py-5 bg-light">
+  <div class="album py-5" style="background-color:Lightgrey">
     <div class="container">
 
       <div class="row">
@@ -70,7 +70,7 @@
                   <%= button_to "Purchase", purchases_path(book_id: @book.id, :method => :post), class:"btn btn-primary btn-sm"%> <!--Button Helper post to purchases/create passes book.id in params>-->
                 </div>
                 <div>
-                <%= link_to 'Delete', "/books/#{@book.id}", method: "DELETE" %>
+                <%= link_to 'Delete', "/books/#{@book.id}", method: "DELETE", class:'btn btn-danger btn-sm' %>
 
                 </div>
                 
@@ -79,6 +79,9 @@
           </div>
         </div>
         <div class= 'col'>
+          <br>
+          <br>
+          <br>
           <p><strong>Category: </strong><%= @book.genre %></p>
           <p><strong>Author: </strong><%= @book.author %></p>
           <p><strong>Pages: </strong><%= @book.page_count %></p>

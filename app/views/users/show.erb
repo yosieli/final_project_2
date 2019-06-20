@@ -47,20 +47,20 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading" style=" color:DodgerBlue; font-size: 46px; font-family: bold;font-style: italic;"> Welcome    <%=@user.user_name%></h1>
+  
+    <div class="text-center"style='margin:1em'>
+      <h1 class="jumbotron-heading" style=" color:DodgerBlue; font-size: 65px; font-family: bold;font-style: italic;"> Welcome    <%=@user.user_name%></h1>
     </div>
     
     
-  </section>
 
-  <div class="album py-5 bg-light">
+
+  <div class="album py-5" style='background-color:Lightblue'>
     <div class="container">
 
-    <%if @user.books.length > 0%>
+    <% if @user.books.length > 0 %>
 
-      <div class="row">
+      <div class="row" >
       <% @user.books.each do |book| %>  
            
         <div class="col-md-4 container jumbotron">
@@ -80,8 +80,8 @@
         </div>
         <% end %>
       <%else%>
-      <div class='container text-center'>
-        <h1><%= 'You dont have any books yet!'  %></h1>
+      <div class='container-fluid text-center'>
+        <img src="https://images.all-free-download.com/images/graphiclarge/library_drawing_readers_bookshelf_icons_colored_cartoon_6833503.jpg" class='img-fluid' height='100%' width='100%'>
       </div>
       <%end%>
       </div>
