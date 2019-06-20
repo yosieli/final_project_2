@@ -30,7 +30,6 @@ class BooksController < ApplicationController
       @@search_result = api_search(strong_params[:search])
       redirect_to "/books/search"
     end
-<<<<<<< HEAD
 
     def search
 
@@ -51,27 +50,10 @@ class BooksController < ApplicationController
       response = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=dog&maxResults=3&printType=books")
       api_response = JSON.parse(response)
       api_response
-=======
-  end
-
-  def api_search(input)
-    response = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{input}&maxResults=3&printType=books")
-    api_response = JSON.parse(response)
-    api_response
-  end
-
-  def api_image_search
-    img_url = nil
-    @@search_result['items'].each do |book|
-      self_link = RestClient.get(book['selfLink'])
-      item_info = JSON.parse(self_link)
-      img_url = item_info['volumeInfo']['imageLinks']['small']  
->>>>>>> a25cb01d13bf813be00942e3d19f447afa4e454c
     end
       img_url
   end
 
-<<<<<<< HEAD
     def search
     
     end
@@ -85,9 +67,6 @@ class BooksController < ApplicationController
 
 
     def strong_params
-=======
-  def strong_params
->>>>>>> a25cb01d13bf813be00942e3d19f447afa4e454c
      
     params.require(:book).permit([:title, :genre, :img_url, :author, :book_list, :search, :summary, :page_count])
 
