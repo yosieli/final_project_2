@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   patch 'users/:id',to: 'users#update'
   
   post '/books' ,to: 'books#search_form'
+  delete '/books/:id', to: 'books#destroy'
 
   
 

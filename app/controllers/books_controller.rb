@@ -21,14 +21,19 @@ class BooksController < ApplicationController
       end
     end
 
-    def api_search(input)
-      response = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{input}&maxResults=3&printType=books")
+    def api_search
+      response = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=dog&maxResults=3&printType=books")
       api_response = JSON.parse(response)
       api_response
     end
 
     def search
     
+    end
+
+    def destroy
+      @book = Book.find(params[:id])
+      @book.destroy
     end
   
 

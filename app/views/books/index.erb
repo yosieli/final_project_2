@@ -13,6 +13,9 @@
           font-size: 3.5rem;
         }
       }
+      .btn btn-primary btn-sm{
+        font-size: 100px;
+      }
     </style>
     <!-- Custom styles for this template -->
     
@@ -25,14 +28,27 @@
     </div>
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
+  <p>
     <div class="container d-flex justify-content-between">
       <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
+
+      
+       <select name="book[book_list]" form="search">
+          <option name="book[author]" value="author">Author</option>
+          <option name= "book[title]" value="title">Title</option>
+        </select>
+        <br>
       </a>
+  </p>
       <p>
-        <a href="/users/<%=@user.id%>" class="btn btn-secondary my-2">Your Home Page</a>
-        <%= link_to "Log out", "/users", method: "delete", class: "btn btn-secondary my-2" %>
+      
+        <input  type="text" placeholder="Search" aria-label="Search"  name='book[search]'>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </p>
+
+      <p>
+        <a href="/users/<%=@user.id%>" class="btn btn-primary btn-sm" >Your Home Page</a>
+        <%= link_to "Log out", "/users", method: "delete", class: "btn btn-primary btn-sm" %>
       </p>
     </div>
   </div>
@@ -42,17 +58,18 @@
 
   <section class="jumbotron text-center">
     <div class="container-fluid">
-        <h1>Welcome to The BookHub!!!!!</h1>
+        <h1 style=" color:DodgerBlue; font-size: 50px; font-family: bold;font-style: italic;">Welcome to The BookHub</h1>
     </div>
     <div class = 'text-left'>
         <select name="book[book_list]" form="search">
           <option name="book[author]" value="author">Author</option>
           <option name= "book[title]" value="title">Title</option>
         </select>
+        
         <form class="form-inline mt-2 mt-md-0" id='search' action="/books" accept-charset="UTF-8" data-remote="true" method="post">
         <input name="utf8" type="hidden" value="✓">
         <input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==" class="form-signin container">
-        
+          <br>
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"  name='book[search]'>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -72,9 +89,9 @@
             </a>
 
             <div class="card-body">
-              <p class="card-text">Title: <%= book.title %></p>
-              <p class="card-text">Category: <%= book.genre %></p>
-              <p class="card-text">Author: <%= book.author%></p>
+              <p style="  font-size: 20px; font-family: bold;font-style: italic;" class="card-text">Title: <%= book.title %></p>
+              <p style="  font-size: 20px; font-family: bold;font-style: italic;"class="card-text">Category: <%= book.genre %></p>
+              <p style="  font-size: 20px; font-family: bold;font-style: italic;"class="card-text">Author: <%= book.author%></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div >
                   <%= button_to "Purchase", purchases_path(book_id: book.id, :method => :post), class:"btn btn-primary btn-sm"%> <!--Button Helper post to purchases/create passes book.id in params>-->
