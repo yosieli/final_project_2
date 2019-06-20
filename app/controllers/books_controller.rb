@@ -48,9 +48,7 @@ class BooksController < ApplicationController
       img_url
   end
 
-    def search
-    
-    end
+  
 
     def destroy
       @book = Book.find(params[:id])

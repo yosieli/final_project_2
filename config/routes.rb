@@ -17,15 +17,9 @@ Rails.application.routes.draw do
   delete '/users', to: 'users#destroy'
   get '/users/:id/edit', to: 'users#edit'
   patch 'users/:id',to: 'users#update'
-<<<<<<< HEAD
-  delete '/books/:id', to: 'books#destroy'
-
-  
-=======
   post '/books' ,to: 'books#search_form'
   delete '/books/:id', to: 'books#destroy'
 
->>>>>>> 7757b3702cf9f8a86a53f45c0a24ded5a8fe7a05
   
 
   # post '/users/' ,to: 'users#create'

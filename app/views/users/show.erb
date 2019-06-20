@@ -74,7 +74,9 @@
               <p style="  font-size: 20px; font-family: bold;font-style: italic;"class="card-text">Title: <%= book.title %></p>
               <p style="  font-size: 20px; font-family: bold;font-style: italic;" class="card-text">Category: <%= book.genre %></p>
               <p style="  font-size: 20px; font-family: bold;font-style: italic;"class="card-text">Author: <%= book.author%></p>  
+              <%= link_to 'Delete', "/books/#{book.id}",class:"btn btn-primary btn-sm", method: "DELETE" %>
             </div>
+           
           </div>
         </div>
         <% end %>
