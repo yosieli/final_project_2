@@ -69,6 +69,10 @@
                 <div >
                   <%= button_to "Purchase", purchases_path(book_id: @book.id, :method => :post), class:"btn btn-primary btn-sm"%> <!--Button Helper post to purchases/create passes book.id in params>-->
                 </div>
+                <div>
+                <%= link_to 'Delete', "/books/#{@book.id}", method: "DELETE" %>
+
+                </div>
                 
               </div>
             </div>
