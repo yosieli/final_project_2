@@ -8,8 +8,9 @@ class BooksController < ApplicationController
 
     def new
       @book=Book.new()
-      end
-      def show
+    end
+
+    def show
         @book=Book.find(params[:id])
     end
 
@@ -24,6 +25,10 @@ class BooksController < ApplicationController
       response = RestClient.get('https://www.googleapis.com/books/v1/volumes?q=?&maxResults=3&printType=books')
       api_response = JSON.parse(response)
       api_response
+    end
+
+    def search
+    
     end
   
 
