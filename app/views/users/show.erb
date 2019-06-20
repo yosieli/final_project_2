@@ -52,11 +52,8 @@
     <div class="container">
       <h1 class="jumbotron-heading"> Welcome    <%=@user.user_name%></h1>
     </div>
-    <div class='container'>
-      <% if @user.avatar.attached? %>
-            <img src='<%=(url_for(@user.avatar))%>'>
-    <%end%>
-    </div>
+    
+    
   </section>
 
   <div class="album py-5 bg-light">

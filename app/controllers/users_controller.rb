@@ -16,9 +16,7 @@ class UsersController < ApplicationController
     
     def new 
         if flash[:error]
-                
             @error = flash[:error]
-            
         else
             @error = {"user_name" => []}
         end
@@ -29,7 +27,7 @@ class UsersController < ApplicationController
         if user.valid?
             user.before_save
             user.save
-            redirect_to  "/users/#{user.id}"
+            redirect_to  "/login"
         else
             flash[:error] = user.errors.messages
             redirect_to "/users/new"
@@ -42,27 +40,18 @@ class UsersController < ApplicationController
 
     def update
      @user = User.find(params[:id])
-     
-     
      @user.create(strong_params)
-    
      redirect_to "/users/#{@user.id}"  
     end
 
     def authenticate
-
-        # The username the use wrote to find the user 
-        user = User.find_by(user_name: params[:user_name].capitalize)
-        
-        # Then check if the password they wrote was correct
-    
-        if user != nil && user.authenticate(params[:password] )
+        user = User.find_by(user_name: params[:user_name].capitalize)           # The username the use wrote to find the user
+        if user != nil && user.authenticate(params[:password] )                 # Then check if the password they wrote was correct
              # If it was, save the users id in the session
             session[:user_id] = user.id
             redirect_to "/users/#{user.id}"
         else 
-            flash[:error] = "Username/Password not found"
-            
+            flash[:error] = "Username/Password not found"                       #assigns 'error message' to flash cookie
             redirect_to "/login"
         end
     end
@@ -80,12 +69,3 @@ class UsersController < ApplicationController
 
 
 end
-# if flash[:error]
-#     @error=flash[:error]
-#     redirect_to '/login'
-# else
-#     @error = {
-#         "user_name" => []
-#     }
-#     redirect_to "/users/#{user.id}"
-# end

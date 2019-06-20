@@ -15,22 +15,13 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
+    
   </head>
   <body>
     <header>
   <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">asdfadf</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          
-        </div>
-      </div>
+      
     </div>
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
@@ -43,7 +34,6 @@
         <a href="/users/<%=@user.id%>" class="btn btn-secondary my-2">Your Home Page</a>
         <%= link_to "Log out", "/users", method: "delete", class: "btn btn-secondary my-2" %>
       </p>
-      
     </div>
   </div>
 </header>
@@ -52,10 +42,21 @@
 
   <section class="jumbotron text-center">
     <div class="container-fluid">
-      
-      <h1>Welcome to The BookHub!!!!!</h1>
-      
+        <h1>Welcome to The BookHub!!!!!</h1>
     </div>
+    <div class = 'text-left'>
+        <select name="book[book_list]" form="search">
+          <option name="book[author]" value="author">Author</option>
+          <option name= "book[title]" value="title">Title</option>
+        </select>
+        <form class="form-inline mt-2 mt-md-0" id='search' action="/books" accept-charset="UTF-8" data-remote="true" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==" class="form-signin container">
+        
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"  name='book[search]'>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        
   </section>
 
   <div class="album py-5 bg-light">
