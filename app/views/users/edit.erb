@@ -36,27 +36,35 @@
     <!-- Custom styles for this template -->
     
   </head>
-  <body class="text-center jumbotron container">
-  <h1> Welcome to BookHub!</h1>
-  <form action="/users/<%=@user.id%>" accept-charset="UTF-8" data-remote="true" method="post">
-  <input name="utf8" type="hidden" value="✓">
-  <input type="hidden" name="_method" value="patch">
-  <input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==" class="form-signin container">
-  
-  <h1 class="h3 mb-3 font-weight-normal">Please Edit Your Information</h1>
-  <label for="inputUsername" class="sr-only">Username</label>
-  <input type="text" name="user[user_name]" id="user_name" class="form-control form-control-lg" placeholder="Username" required autofocus>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" name="user[password]" id="password" class="form-control form-control-lg" placeholder="Password" required>
-  
-  
-  <div>
-  <br>
-  <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit">Edit</button>
-  <%= link_to 'Cancel', "/users/#{@user.id}", class: "btn btn-lg btn-danger btn-block" %>
-  </div>
-  <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
-</form>
+  <body class="text-center jumbotron container" style='background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);'>
+  <div class= 'container' style='width:400px'>
+      <form action="/users/<%=@user.id%>" accept-charset="UTF-8" data-remote="true" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==" class="form-signin container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="h3 mb-3 font-weight-normal" style=" color:white; font-size: 46px; font-family:'Times New Roman';font-weight: bold;" >Please Edit Your Information</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" name="user[user_name]" id="user_name" class="form-control form-control-lg" placeholder="<%=@user.user_name%>" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="user[password]" id="password" class="form-control form-control-lg" placeholder="Password" required>
+        
+        
+        <div class= 'container text-center' style='width:150px'>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit" style='background-color:Darkblue'>Edit</button>
+        <%= link_to 'Cancel', "/users/#{@user.id}", class: "btn btn-lg btn-danger btn-block" %>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+      </form>
+    </div>
 </body>
 
  

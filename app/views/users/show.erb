@@ -27,10 +27,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a href="/books" class="nav-link">Book Home Page</a>
+            <a href="/books" class="nav-link">BookHomePage</a>
           </li>
           <li class="nav-item active">
-            <%= link_to "Log out", "/users", method: "delete", class: "nav-link" %>
+            <%= link_to "Logout", "/users", method: "delete", class: "nav-link" %>
           </li>
           <li class="nav-item active">
             <a href="/users/<%=@user.id%>/edit" class="nav-link">Edit</a>
@@ -49,7 +49,7 @@
 
   
     <div class="text-center"style='margin:1em'>
-      <h1 class="jumbotron-heading" style=" color:DodgerBlue; font-size: 65px; font-family: bold;font-style: italic;"> Welcome    <%=@user.user_name%></h1>
+        <h1 style="font-size: 65px; font-family: 'Times New Roman';font-weight: 'bold' ">Welcome <%=@user.user_name%></h1>
     </div>
     
     
@@ -70,9 +70,9 @@
             </a>
 
             <div class="card-body">
-              <p style="  font-size: 20px; font-family: bold;font-style: italic;"class="card-text">Title: <%= book.title %></p>
-              <p style="  font-size: 20px; font-family: bold;font-style: italic;" class="card-text">Category: <%= book.genre %></p>
-              <p style="  font-size: 20px; font-family: bold;font-style: italic;"class="card-text">Author: <%= book.author%></p>  
+              <p style="  font-size: 20px; font-family: 'Times New Roman';"class="card-text">Title: <%= book.title %></p>
+              <p style="  font-size: 20px; font-family: 'Times New Roman';" class="card-text">Category: <%= book.genre %></p>
+              <p style="  font-size: 20px; font-family: 'Times New Roman';"class="card-text">Author: <%= book.author%></p>  
               <%= link_to 'Delete', "/books/#{book.id}",class:"btn btn-primary btn-sm", method: "DELETE" %>
             </div>
            

@@ -21,7 +21,7 @@
     <!-- Custom styles for this template -->
     
 </head>
-</body> 
+<body >
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,17 +33,21 @@
             <a class="nav-link" href="/users/<%=@user.id%>">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <%= link_to "Log out", "/users", method: "delete", class: "nav-link" %>
+            <%= link_to "Logout", "/users", method: "delete", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
+        
         <form class="form-inline mt-2 mt-md-0" id='search' action="/books" accept-charset="UTF-8" data-remote="true" method="post">
-         <select name="book[book_list]" form="search" class='form-control'>
+         
+         <select name="book[book_list]" form="search" class='form-control' style='margin:.5em'>
           <option name="book[author]" value="author" class='form-control'>Author</option>
           <option name= "book[title]" value="title" class='form-control'>Title</option>
-        </select
+        </select>
+        
+        
         <input name="utf8" type="hidden" value="✓">
         <input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==" class="form-signin container">
           <br>
@@ -55,18 +59,17 @@
 
   
 
-<main role="main">
+<main role="main" >
+  
+  
 
-  <div class="jumbotron text-center" style="margin:0em">
-    
-    <div class="container-fluid">
-        <br>
-        <h1 style=" color:DodgerBlue; font-size: 50px; font-family: bold;font-style: italic;">Welcome to The BookHub</h1>
+  <div class="album py-5 " style='background-color:Darkgrey'>
+  <br>
+  <br>
+    <div class="text-center" style="margin:0em"> 
+        <h1 style=" color:Black; font-size: 65px; font-family: 'Times New Roman';font-weight: 'bold' ">Welcome to The BookHub</h1>
     </div>
-
-  </div>
-
-  <div class="album py-5 bg-light">
+    <br>
     <div class="container">
 
       <div class="row">

@@ -22,34 +22,34 @@
     <!-- Custom styles for this template -->
     
   </head>
-  <body class="text-center jumbotron container">
-  <h1 style=" color:DodgerBlue; font-size: 46px; font-family: bold;font-style: italic;"> Welcome to BookHub!</h1>
+  <body class="text-center jumbotron container" style='background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);'>
+  
+  <div class= 'container' style='width:400px'>
   <form action="/users/authenticate" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="1kXru2KnjDv03DklG9bdCmbqYh6l+IJSDQgIGZrfEP7n0wziyV3nv2zs+IFgm6m7fkjMyMpHUtaQi1Nm1M2ICA==" class="form-signin container">
-  <br>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-  <h1 class="h3 mb-3 font-weight-normal" style=" color:DodgerBlue; font-size: 46px; font-family: bold;font-style: italic;" >Please sign in</h1>
-  <label for="inputUsername" class="sr-only">Username</label>
-  <input type="text" name="user_name" id="user_name" class="form-control form-control-lg" placeholder="Username" required onfocus="this.value=" value="" style= 'text-transform: capitalize'>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Password"  onfocus="this.value=''" value="" required >
-  
-  
-  <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit">Sign in</button>
-  <div>
-    <h1> <%=@error%> </h1>
-  </div>
-  
-</form>
+    <h1 class="h3 mb-3 font-weight-normal" style=" color:white; font-size: 46px; font-family:'Times New Roman';font-weight: bold;" >Login</h1>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input type="text" name="user_name" id="user_name" class="form-control form-control-lg" placeholder="Username" required onfocus="this.value=" value="" style= 'text-transform: capitalize'>
+      <p style='color:Red'><%=@error%> </p>   <!--  error message on wrong/unknown username/password -->
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Password"  onfocus="this.value=''" value="" required >
+      <br>
+      <div class= 'container text-center' style='width:150px'>
+      <button class="btn btn-md btn-primary btn-block" type="submit" name="commit" style='background-color:Darkblue'>Sign in</button>
+      <div>
+  </form>
+</div>
 </body>
 
 
 <div>
 <br>
   
-  <a class='' href="/users/new"><button class="btn btn-md btn-primary" >Create New Account</button></a>
+  <a class='' href="/users/new"><button class="btn btn-md btn-primary btn-block" style='background-color:green' >Sign up?</button></a>
 </div>
      
 <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>

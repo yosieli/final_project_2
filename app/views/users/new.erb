@@ -18,23 +18,32 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    
   </head>
-  <body class="text-center jumbotron container">
-    <h1> Welcome to BookHub!</h1>
+  <body class="text-center jumbotron container" style='background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);'>
+    <div class='container-fluid' style='width:400px'>
     <form action="/users" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="EZ3MQY9qlImPoURFIc1Ob9Ha3V2BAVUVum4Rfazv4KYvbjOVgbS/S1fegxGPgC+5BJVRFtyYl7PE0Mlb4QJ2Nw==" class="form-signin container">
       
-      <h1 class="h3 mb-3 font-weight-normal">Just a Little Info</h1>
+      <h1 class="h3 mb-3 font-weight-normal" style='color:white'>Sign Up</h1>
+      <br>
+      <br>
+      <br>
       <label for="inputUsername" class="sr-only">Username</label>
       <input type="text" name="user[user_name]" id="user_user_name" class="form-control form-control-lg" placeholder="Username" required autofocus style= 'text-transform: capitalize'>
+       <% @error['user_name'].each do |message|%>
+        <p style='color:red'> <%= message %> </p>
+      <%end%>
+      <br>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" name="user[password]" id="user_password" class="form-control form-control-lg" placeholder="Password" required>
-      
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="commit">Create New Account</button>
-      <%= link_to 'Cancel', '/login', class: "btn btn-lg btn-danger btn-block" %>
+      <div class= 'container text-center' style='width:150px'>
+      <br>
+      <button class="btn btn-md btn-primary btn-block" type="submit" name="commit" style='background-color:Darkblue'>Sign Up</button>
+      <br>
+      <%= link_to 'Cancel', '/login', class: "btn btn-md btn-danger btn-block" %>
       <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+      </div>
     </form>
-    <% @error['user_name'].each do |message|%>
-      <h1> <%= message %> </h1>
-    <%end%>
+   
+   </div> 
 </body>
